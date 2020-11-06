@@ -62,6 +62,6 @@ def translation(final_rna):
 strand = input("Enter the DNA strand to be transcribed and translated: ")
 strand = strand.upper()
 messenger_rna = transcription(strand)
-thing = start_to_stop(messenger_rna)
+truncated = start_to_stop(messenger_rna)
 print("Here are the amino acids:")
-print(translation(thing))
+print(translation(truncated))
