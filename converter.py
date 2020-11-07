@@ -68,5 +68,4 @@ if len(truncated) % 3 != 0:
     print("The mRNA strand isn't divisible by 3.")
     quit()
 
-print("Here are the amino acids:")
 print(translation(truncated))
