@@ -47,7 +47,7 @@ def start_to_stop(mrna):
         final_rna = inter_rna[0:stop_index+3]
         return(final_rna)
     except:
-        print("Please enter a valid DNA strand")
+        print("Please enter a valid DNA strand with a start and stop codon")
         quit()
 
 def translation(final_rna):
@@ -63,5 +63,10 @@ strand = input("Enter the DNA strand to be transcribed and translated: ")
 strand = strand.upper()
 messenger_rna = transcription(strand)
 truncated = start_to_stop(messenger_rna)
+
+if len(truncated) % 3 != 0:
+    print("The mRNA strand isn't divisible by 3.")
+    quit()
+
 print("Here are the amino acids:")
 print(translation(truncated))
