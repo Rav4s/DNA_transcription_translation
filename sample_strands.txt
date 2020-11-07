@@ -1,0 +1,74 @@
+Sample: TACATT
+Output:
+UAA STOP codon found
+The mRNA strand is: AUGUAA
+The codons are: ['AUG', 'UAA']
+There are 2 amino acids translated from this mRNA strand.
+['Methionine', 'STOP']
+Working as intended?: Yes.
+
+Sample: TACATGATT
+Output:
+UAA STOP codon found
+The mRNA strand is: AUGUACUAA
+The codons are: ['AUG', 'UAC', 'UAA']
+There are 3 amino acids translated from this mRNA strand.
+['Methionine', 'Tyrosine', 'STOP']
+Working as intended?: Yes.
+
+Sample: TACATGCCAATT
+Output:
+UAA STOP codon found
+The mRNA strand is: AUGUACGGUUAA
+The codons are: ['AUG', 'UAC', 'GGU', 'UAA']
+There are 4 amino acids translated from this mRNA strand.
+['Methionine', 'Tyrosine', 'Glycine', 'STOP']
+Working as intended?: Yes.
+
+Sample: ATACATGCCAGTCATCGTTATTC
+Output:
+UAA STOP codon found
+The mRNA strand is: AUGUACGGUCAGUAGCAAUAA
+The codons are: ['AUG', 'UAC', 'GGU', 'CAG', 'UAG', 'CAA', 'UAA']
+There are 7 amino acids translated from this mRNA strand.
+['Methionine', 'Tyrosine', 'Glycine', 'Glutamine', 'STOP', 'Glutamine', 'STOP']
+Working as intended?: No. Doesn't recognize first stop codon.
+
+
+Sample: TACATGCCATACGAGACGATT
+Output:
+UAA STOP codon found
+The mRNA strand is: AUGUACGGUAUGCUCUGCUAA
+The codons are: ['AUG', 'UAC', 'GGU', 'AUG', 'CUC', 'UGC', 'UAA']
+There are 7 amino acids translated from this mRNA strand.
+['Methionine', 'Tyrosine', 'Glycine', 'Methionine', 'Leucine', 'Cysteine', 'STOP']
+Working as intended?: Yes.
+
+
+Sample: TACATGCCATACGAGACGAGCGCGCCTAAGCGGATT
+Output:
+UAA STOP codon found
+The mRNA strand is: AUGUACGGUAUGCUCUGCUCGCGCGGAUUCGCCUAA
+The codons are: ['AUG', 'UAC', 'GGU', 'AUG', 'CUC', 'UGC', 'UCG', 'CGC', 'GGA', 'UUC', 'GCC', 'UAA']
+There are 12 amino acids translated from this mRNA strand.
+['Methionine', 'Tyrosine', 'Glycine', 'Methionine', 'Leucine', 'Cysteine', 'Serine', 'Arginine', 'Glycine', 'Phenylalanine', 'Alanine', 'STOP']
+Working as intended?: Yes.
+
+
+Sample: TACATGCCATACGAGACGAGCGCGCCTAAGCGGCGCAGACTCATGGTCATT
+Output:
+UAA STOP codon found
+The mRNA strand is: AUGUACGGUAUGCUCUGCUCGCGCGGAUUCGCCGCGUCUGAGUACCAGUAA
+The codons are: ['AUG', 'UAC', 'GGU', 'AUG', 'CUC', 'UGC', 'UCG', 'CGC', 'GGA', 'UUC', 'GCC', 'GCG', 'UCU', 'GAG', 'UAC', 'CAG', 'UAA']
+There are 17 amino acids translated from this mRNA strand.
+['Methionine', 'Tyrosine', 'Glycine', 'Methionine', 'Leucine', 'Cysteine', 'Serine', 'Arginine', 'Glycine', 'Phenylalanine', 'Alanine', 'Alanine', 'Serine', 'Glutamic Acid', 'Tyrosine', 'Glutamine', 'STOP']
+Working as intended?: Yes.
+
+Sample: TACAGGCCTTAGATCGTCATGCCATACGAGACGAGCGCGCCTAAGCGGCGCAGACTCATGGTCATT
+Output:
+UAA STOP codon found
+The mRNA strand is: AUGUCCGGAAUCUAGCAGUACGGUAUGCUCUGCUCGCGCGGAUUCGCCGCGUCUGAGUACCAGUAA
+The codons are: ['AUG', 'UCC', 'GGA', 'AUC', 'UAG', 'CAG', 'UAC', 'GGU', 'AUG', 'CUC', 'UGC', 'UCG', 'CGC', 'GGA', 'UUC', 'GCC', 'GCG', 'UCU', 'GAG', 'UAC', 'CAG', 'UAA']
+There are 22 amino acids translated from this mRNA strand.
+['Methionine', 'Serine', 'Glycine', 'Isoleucine', 'STOP', 'Glutamine', 'Tyrosine', 'Glycine', 'Methionine', 'Leucine', 'Cysteine', 'Serine', 'Arginine', 'Glycine', 'Phenylalanine', 'Alanine', 'Alanine', 'Serine', 'Glutamic Acid', 'Tyrosine', 'Glutamine', 'STOP']
+Working as intended?: No. Doesn't recognize first stop codon.
