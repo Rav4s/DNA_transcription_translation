@@ -16,4 +16,5 @@ For example, `AUGAUCUCGUAA` would be converted to `['AUG', 'AUC', 'UCG', 'UAA']`
 Finally, it compares each item in the list to the amino_acids.py file, which is basically a predefined [codon chart.](https://www.google.com/search?q=codon+chart&rlz=1C1CHBF_enUS912US912&tbm=isch&source=iu&ictx=1&fir=SVhfz4tRL5GzVM%252Cx4w9lB13r4FJ7M%252C_&vet=1&usg=AI4_-kSuwWL4sbNFjTZd3fkSLRoPujadRw&sa=X&ved=2ahUKEwi7verdq-7sAhVQSK0KHUXZAp8Q9QF6BAgBEFg&biw=1366&bih=625&safe=active&ssui=on#imgrc=SVhfz4tRL5GzVM)  
 This returns a list of the amino acids for the codons: `['AUG', 'AUC', 'UCG', 'UAA']` would return `['Methionine', 'Isoleucine', 'Serine', 'STOP']`  
 
+You can find sample DNA strands and what the script returns for them in the sample_strands.txt file.   
 **WARNING: I HAVEN'T DONE A LOT OF TESTING, SO USE THIS TOOL AT YOUR OWN RISK.**
