@@ -33,19 +33,19 @@ def find_start(mrna):
         quit()
 
 def find_stop(mrna):
-    if "UAA" in mrna:
-        print("UAA STOP codon found")
-        stop_index = mrna.index("UAA")
-    elif "UAG" in mrna:
-        print("UAG STOP codon found")
-        stop_index = mrna.index("UAG")
-    elif "UGA" in mrna:
-        print("UGA STOP codon found")
-        stop_index = mrna.index("UGA")
-    else:
-        print("No STOP codon found. Exiting...")
-        quit()
-    return stop_index
+    for i in mrna:
+        if "UAA" in i:
+            print("UAA STOP codon found")
+            stop_index = mrna.index("UAA")
+        elif "UAG" in i:
+            print("UAG STOP codon found")
+            stop_index = mrna.index("UAG")
+        elif "UGA" in i:
+            print("UGA STOP codon found")
+            stop_index = mrna.index("UGA")
+        else:
+            continue
+        return stop_index
 
 def break_into_codons(mrna):
     n = 3
