@@ -5,21 +5,6 @@ from amino_acids import codons_to_acids
 
 stop_index = "NaN"
 
-def find_stop(mrna):
-    if "UAA" in mrna:
-        print("UAA STOP codon found")
-        stop_index = mrna.index("UAA")
-    elif "UAG" in mrna:
-        print("UAG STOP codon found")
-        stop_index = mrna.index("UAG")
-    elif "UGA" in mrna:
-        print("UGA STOP codon found")
-        stop_index = mrna.index("UGA")
-    else:
-        print("No STOP codon found. Exiting...")
-        quit()
-    return stop_index
-
 def transcription(dna):
     res = []
     newlist = []
@@ -38,34 +23,51 @@ def transcription(dna):
     mrna_strand = ''.join(newlist)
     return mrna_strand
 
-def start_to_stop(mrna):
-    global stop_index
+def find_start(mrna):
     try:
         start_index = mrna.index("AUG")
         inter_rna = mrna[start_index:]
-        stop_index = find_stop(inter_rna)
-        final_rna = inter_rna[0:stop_index+3]
-        return(final_rna)
+        return inter_rna
     except:
-        print("Please enter a valid DNA strand with a start and stop codon")
+        print("Please enter a valid DNA strand with a start codon.")
         quit()
 
-def translation(final_rna):
-    print("The mRNA strand is:", final_rna)
+def find_stop(mrna):
+    if "UAA" in mrna:
+        print("UAA STOP codon found")
+        stop_index = mrna.index("UAA")
+    elif "UAG" in mrna:
+        print("UAG STOP codon found")
+        stop_index = mrna.index("UAG")
+    elif "UGA" in mrna:
+        print("UGA STOP codon found")
+        stop_index = mrna.index("UGA")
+    else:
+        print("No STOP codon found. Exiting...")
+        quit()
+    return stop_index
+
+def break_into_codons(mrna):
     n = 3
-    res = [final_rna[i:i+n] for i in range(0, len(final_rna), n)]
-    print("The codons are:", res)
-    list_of_amino_acids = codons_to_acids(res)
+    res = [mrna[i:i+n] for i in range(0, len(mrna), n)]
+    return res
+
+def truncate(codons, stop_index):
+    codons = codons[0:stop_index+1]
+    return codons
+
+def translation(final_codons):
+    print("The codons are:", final_codons)
+    list_of_amino_acids = codons_to_acids(final_codons)
     print("There are", len(list_of_amino_acids), "amino acids translated from this mRNA strand.")
     return list_of_amino_acids
 
 strand = input("Enter the DNA strand to be transcribed and translated: ")
 strand = strand.upper()
 messenger_rna = transcription(strand)
-truncated = start_to_stop(messenger_rna)
-
-if len(truncated) % 3 != 0:
-    print("The mRNA strand isn't divisible by 3.")
-    quit()
-
-print(translation(truncated))
+with_start = find_start(messenger_rna)
+into_codons = break_into_codons(with_start)
+stop_index = find_stop(into_codons)
+final_codons = truncate(into_codons, stop_index)
+amino_acids_list = translation(final_codons)
+print(amino_acids_list)
